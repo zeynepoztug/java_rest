@@ -1,14 +1,11 @@
 package src.main.java.repository;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import src.main.java.model.Student;
@@ -23,26 +20,28 @@ public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    class StudentRowMapper implements RowMapper <Student> {
-
-        @Override
-
-        public Student mapRow(ResultSet rs, int rowNum) throws SQLException {
-            Student student = new Student();
-            student.setId(rs.getLong("id"));
-            student.setName(rs.getString("name"));
-            student.setPassportNumber(rs.getString("passport_number"));
-            return student;
-        }
-
-    }
-
     public List<Student> findAll() {
-        return jdbcTemplate.query("select * from student", new StudentRowMapper());
+    	return jdbcTemplate.query(
+                "select * from student",
+                (rs, rowNum) ->
+                        new Student(
+                                rs.getLong("id"),
+                                rs.getString("name"),
+                                rs.getString("passport_number")
+                        )
+        );
     }
     
     public List<Student> findLastStudents() {
-        return jdbcTemplate.query("select * from student order by id desc limit 10", new StudentRowMapper());
+    	return jdbcTemplate.query(
+                "select * from student order by id desc limit 10",
+                (rs, rowNum) ->
+                        new Student(
+                                rs.getLong("id"),
+                                rs.getString("name"),
+                                rs.getString("passport_number")
+                        )
+        );
     }
     
     public int insert(Student student) {
@@ -51,16 +50,22 @@ public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
     }
     
     public Student findById(long id) {
-    	
-    	String sql = "SELECT * FROM student WHERE id = ?";
-		RowMapper<Student> rowMapper = new BeanPropertyRowMapper<Student>(Student.class);
-		Student student;
-		try {
-			student = jdbcTemplate.queryForObject(sql, rowMapper, id);
-		} catch (EmptyResultDataAccessException e) {
+    	Student student = null;
+    	try {
+    		jdbcTemplate.queryForObject(
+                "select * from student where id = ?",
+                new Object[]{id},
+                (rs, rowNum) ->
+                        new Student(
+                                rs.getLong("id"),
+                                rs.getString("name"),
+                                rs.getString("passport_number")
+                        )
+    				); 
+    	} catch (EmptyResultDataAccessException e) {
 			student = null;
 		}
-		return student;
+    	return student;
 
     }
 
