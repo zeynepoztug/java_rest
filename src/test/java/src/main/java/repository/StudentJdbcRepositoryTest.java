@@ -29,23 +29,21 @@ public class StudentJdbcRepositoryTest {
 	@Before
     public void setUp(){
         alice = new Student();
-        alice.setId(12L);
         alice.setName("Alice");
         alice.setPassportNumber("1234CDS");
         
         bob = new Student();
-        bob.setId(13L);
         bob.setName("Bob");
         bob.setPassportNumber("857567yhj");
     }
 	
 	@Test
     public void createTest() {
-		repository.insert(alice);
+		int generatedId = repository.insert(alice);
 
-        Student validStudent = repository.findById(alice.getId());
+        Student validStudent = repository.findById(generatedId);
 
-        assertThat(validStudent.getId()).isEqualTo(alice.getId());
+        assertThat(validStudent.getId()).isEqualTo(generatedId);
         assertThat(validStudent.getName()).isEqualTo(alice.getName());
         assertThat(validStudent.getPassportNumber()).isEqualTo(alice.getPassportNumber());
     }

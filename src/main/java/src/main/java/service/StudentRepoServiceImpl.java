@@ -11,8 +11,12 @@ import src.main.java.repository.StudentJdbcRepository;
 @Service("studentRepoService")
 public class StudentRepoServiceImpl implements StudentRepoService{
 	
-	@Autowired
 	StudentJdbcRepository repository;
+	
+    @Autowired
+    public StudentRepoServiceImpl(StudentJdbcRepository repository) {
+        this.repository = repository;
+    }
 
 	@Override
 	public List<Student> getAllStudents() {

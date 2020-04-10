@@ -18,14 +18,15 @@ public class ScheduledTasks {
 
 	RestTemplate restTemplate;
 	
-	@Autowired
 	StudentJdbcRepository repository;
 	
-	@Autowired
 	StringGeneratorService stringService;
 	
-	public ScheduledTasks() {
+	@Autowired
+	public ScheduledTasks(StudentJdbcRepository repository, StringGeneratorService stringService) {
 		restTemplate = new RestTemplate();
+		this.repository = repository;
+		this.stringService = stringService;
 	}
 
 	@Scheduled(fixedRate = 5000)

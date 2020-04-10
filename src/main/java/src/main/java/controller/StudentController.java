@@ -20,8 +20,12 @@ public class StudentController {
 	
 	private static final Logger log = LoggerFactory.getLogger(StudentController.class);
 	
-	@Autowired
     StudentRepoService service;
+	
+    @Autowired
+    public StudentController(StudentRepoService service) {
+        this.service = service;
+    }
 	
 	@GetMapping("/students")
     public List<Student> students() {

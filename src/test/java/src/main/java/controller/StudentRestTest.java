@@ -27,7 +27,7 @@ public class StudentRestTest {
     {
         RestTemplate restTemplate = new RestTemplate();
         
-        final String baseUrl = "http://localhost:8080/getAllStudents";
+        final String baseUrl = "http://localhost:8080/students";
         URI uri = new URI(baseUrl);
 
         ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);

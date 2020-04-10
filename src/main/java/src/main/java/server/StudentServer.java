@@ -14,8 +14,12 @@ public class StudentServer {
 	
 	private static final Logger log = LoggerFactory.getLogger(StudentServer.class);
 	
-	@Autowired
 	StudentService service;
+	
+    @Autowired
+    public StudentServer(StudentService service) {
+        this.service = service;
+    }
 	
 	@GetMapping("/studentGenerator")
 	public Student studentGenerator() {
