@@ -11,9 +11,6 @@ import src.main.java.repository.StudentJdbcRepository;
 @EnableScheduling
 public class JavaApplication {
 
-    @Autowired
-    StudentJdbcRepository repository;
-
     public static void main(String[] args) {
         SpringApplication.run(JavaApplication.class, args);
     }

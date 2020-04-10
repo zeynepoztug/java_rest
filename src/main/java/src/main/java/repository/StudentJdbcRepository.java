@@ -10,7 +10,7 @@ public interface StudentJdbcRepository {
     
     public List<Student> findLastStudents();
     
-    public void insert(Student student);
+    public int insert(Student student);
     
     public Student findById(long id);
 

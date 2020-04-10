@@ -16,8 +16,12 @@ import src.main.java.model.Student;
 @Repository
 public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
 	
-	@Autowired
     JdbcTemplate jdbcTemplate;
+	
+    @Autowired
+    public StudentJdbcRepositoryImpl(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
 
     class StudentRowMapper implements RowMapper <Student> {
 
@@ -41,9 +45,9 @@ public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
         return jdbcTemplate.query("select * from student order by id desc limit 10", new StudentRowMapper());
     }
     
-    public void insert(Student student) {
+    public int insert(Student student) {
         String sql = "insert into student (name, passport_number) values (?, ?)";
-        jdbcTemplate.update(sql, student.getName(), student.getPassportNumber());
+        return jdbcTemplate.update(sql, student.getName(), student.getPassportNumber());
     }
     
     public Student findById(long id) {
