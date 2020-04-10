@@ -4,9 +4,10 @@ import java.util.Random;
 
 import org.springframework.stereotype.Service;
 
-@Service("stringGenertorService")
+@Service("stringGeneratorService")
 public class StringGeneratorService {
 	
+	/* This method creates random alphanumeric string range A-Z0-9*/
 	public String generateRandomAlphaNumericString() {
 		int leftLimit = 48;
 	    int rightLimit = 122;
@@ -22,6 +23,7 @@ public class StringGeneratorService {
 	    return generatedString;
 	}
 	
+	/* This method creates alphabetic strings range A-Z */
 	public String generateRandomAlphaString() {
 		String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		int length = 10;
@@ -35,6 +37,7 @@ public class StringGeneratorService {
 	    return sb.toString();
 	}
 	
+	/* This method takes a string as an argument and converts is to the title case e.g the title -> The Title */
 	public String convertToTitleCaseIteratingChars(String text) {
 	    if (text == null || text.isEmpty()) {
 	        return text;
