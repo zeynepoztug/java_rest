@@ -45,11 +45,9 @@ public class StudentJdbcRepository {
         return jdbcTemplate.query("select * from student order by id desc limit 10", new StudentRowMapper());
     }
     
-    public int insert(Student student) {
-        return jdbcTemplate.update("insert into student (id, name, passport_number) " + "values(?,  ?, ?)",
-            new Object[] {
-                student.getId(), student.getName(), student.getPassportNumber()
-            });
+    public void insert(Student student) {
+        String sql = "insert into student (name, passport_number) values (?, ?)";
+        jdbcTemplate.update(sql, student.getName(), student.getPassportNumber());
     }
     
     public Student findById(long id) {
