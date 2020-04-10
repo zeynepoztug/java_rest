@@ -1,7 +1,6 @@
 package src.main.java.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -34,7 +33,7 @@ public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
     
     public List<Student> findLastStudents() {
     	return jdbcTemplate.query(
-                "select * from student order by id desc limit 10",
+                "select * from student order by modified desc limit 10",
                 (rs, rowNum) ->
                         new Student(
                                 rs.getLong("id"),
