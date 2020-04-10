@@ -9,5 +9,7 @@ public interface StudentRepoService {
 	public List<Student> getAllStudents();
 	
 	public List<Student> getLastStudents();
+	
+	public Student findById(Long id);
 
 }
