@@ -47,6 +47,7 @@ public class StudentController {
 	         throw new RecordNotFoundException();
 	    }
 		return new ResponseEntity<Student>(student, HttpStatus.OK);
+		
     }
 
 }
