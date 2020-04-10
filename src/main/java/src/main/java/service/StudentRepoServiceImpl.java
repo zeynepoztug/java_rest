@@ -24,4 +24,9 @@ public class StudentRepoServiceImpl implements StudentRepoService{
 		return repository.findLastStudents();
 	}
 
+	@Override
+	public Student findById(Long id) {
+		return repository.findById(id);
+	}
+
 }
