@@ -13,6 +13,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import src.main.java.model.Student;
+import src.main.java.repository.StudentJdbcRepository;
 
 @RunWith(SpringRunner.class)
 @JdbcTest

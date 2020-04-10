@@ -8,7 +8,7 @@
 		<version>2.1.0.RELEASE</version>
 		<relativePath/>
 	</parent>
-	<groupId>src.main</groupId>
+	<groupId>com.app</groupId>
 	<artifactId>java_rest</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>java_rest</name>
