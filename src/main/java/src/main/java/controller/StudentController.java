@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import src.main.java.model.Student;
 import src.main.java.repository.StudentJdbcRepository;
+import src.main.java.service.StudentRepoService;
 
 @RestController
 public class StudentController {
@@ -17,18 +18,18 @@ public class StudentController {
 	private static final Logger log = LoggerFactory.getLogger(StudentController.class);
 	
 	@Autowired
-    StudentJdbcRepository repository;
+    StudentRepoService service;
 	
 	@GetMapping("/getAllStudents")
     public List<Student> getAllStudents() {
 		log.info("getAllStudents request...");
-		return repository.findAll();
+		return service.getAllStudents();
     }
 	
 	@GetMapping("/getLastStudents")
     public List<Student> getLastStudents() {
 		log.info("getLastStudents request...");
-		return repository.findLastStudents();
+		return service.getLastStudents();
     }
 
 }
