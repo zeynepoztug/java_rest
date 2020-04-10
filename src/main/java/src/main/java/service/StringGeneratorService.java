@@ -7,12 +7,13 @@ import org.springframework.stereotype.Service;
 @Service("stringGeneratorService")
 public class StringGeneratorService {
 	
+	Random random = new Random();
+	
 	/* This method creates random alphanumeric string range A-Z0-9*/
 	public String generateRandomAlphaNumericString() {
 		int leftLimit = 48;
 	    int rightLimit = 122;
 	    int targetStringLength = 10;
-	    Random random = new Random();
 	 
 	    String generatedString = random.ints(leftLimit, rightLimit + 1)
 	      .filter(i -> (i <= 57 || i >= 65) && (i <= 90 || i >= 97))
@@ -28,7 +29,6 @@ public class StringGeneratorService {
 		String candidateChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 		int length = 10;
 	    StringBuilder sb = new StringBuilder();
-	    Random random = new Random();
 	    for (int i = 0; i < length; i++) {
 	        sb.append(candidateChars.charAt(random.nextInt(candidateChars
 	                .length())));

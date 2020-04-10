@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import src.main.java.exception.RecordNotFoundException;
 import src.main.java.model.Student;
-import src.main.java.repository.StudentJdbcRepository;
 import src.main.java.service.StudentRepoService;
 
 @RestController
