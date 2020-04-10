@@ -3,6 +3,7 @@ package src.main.java.task;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
@@ -22,6 +23,9 @@ public class ScheduledTasks {
 	
 	StringGeneratorService stringService;
 	
+	@Value("${students.get-url}")
+    private String getUrl;
+	
 	@Autowired
 	public ScheduledTasks(StudentJdbcRepository repository, StringGeneratorService stringService) {
 		restTemplate = new RestTemplate();
@@ -29,9 +33,9 @@ public class ScheduledTasks {
 		this.stringService = stringService;
 	}
 
-	@Scheduled(fixedRate = 5000)
+	@Scheduled(fixedRateString = "${fixedRate}")
 	public void getStudentInfo() {
-	    Student response = restTemplate.getForObject("http://localhost:8080/studentGenerator", Student.class);
+	    Student response = restTemplate.getForObject(getUrl, Student.class);
 		log.info("Random student created...");
 		modifyStudent(response);
 		log.info("Random student modified...");
