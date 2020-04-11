@@ -1,4 +1,4 @@
-package src.main.java.controller;
+package com.java.controller;
 
 import java.util.List;
 
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
-import src.main.java.exception.RecordNotFoundException;
-import src.main.java.model.Student;
-import src.main.java.service.StudentRepoService;
+import com.java.exception.RecordNotFoundException;
+import com.java.model.Student;
+import com.java.service.StudentRepoService;
 
 @RestController
 public class StudentController {

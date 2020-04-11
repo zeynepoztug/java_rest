@@ -1,4 +1,4 @@
-package src.main.java.repository;
+package com.java.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -12,8 +12,8 @@ import org.springframework.boot.test.autoconfigure.jdbc.JdbcTest;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import src.main.java.model.Student;
-import src.main.java.repository.StudentJdbcRepository;
+import com.java.model.Student;
+import com.java.repository.StudentJdbcRepository;
 
 @RunWith(SpringRunner.class)
 @JdbcTest

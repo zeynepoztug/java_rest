@@ -1,4 +1,4 @@
-package src.main.java.service;
+package com.java.service;
 
 import java.util.Random;
 

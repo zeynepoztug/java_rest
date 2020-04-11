@@ -1,4 +1,4 @@
-package src.main.java.controller;
+package com.java.controller;
 
 
 import java.net.URI;

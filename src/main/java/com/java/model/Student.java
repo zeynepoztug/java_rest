@@ -1,4 +1,4 @@
-package src.main.java.model;
+package com.java.model;
 
 public class Student {
 

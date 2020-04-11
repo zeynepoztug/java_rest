@@ -1,8 +1,8 @@
-package src.main.java.repository;
+package com.java.repository;
 
 import java.util.List;
 
-import src.main.java.model.Student;
+import com.java.model.Student;
 
 public interface StudentJdbcRepository {
 

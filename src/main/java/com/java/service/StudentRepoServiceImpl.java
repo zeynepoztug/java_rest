@@ -1,12 +1,12 @@
-package src.main.java.service;
+package com.java.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import src.main.java.model.Student;
-import src.main.java.repository.StudentJdbcRepository;
+import com.java.model.Student;
+import com.java.repository.StudentJdbcRepository;
 
 @Service("studentRepoService")
 public class StudentRepoServiceImpl implements StudentRepoService{
