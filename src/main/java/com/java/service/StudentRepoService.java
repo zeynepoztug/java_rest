@@ -1,8 +1,8 @@
-package src.main.java.service;
+package com.java.service;
 
 import java.util.List;
 
-import src.main.java.model.Student;
+import com.java.model.Student;
 
 public interface StudentRepoService {
 	

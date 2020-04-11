@@ -1,4 +1,4 @@
-package src.main.java.task;
+package com.java.task;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,9 +8,9 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
-import src.main.java.model.Student;
-import src.main.java.repository.StudentJdbcRepository;
-import src.main.java.service.StringGeneratorService;
+import com.java.model.Student;
+import com.java.repository.StudentJdbcRepository;
+import com.java.service.StringGeneratorService;
 
 @Component
 public class ScheduledTasks {

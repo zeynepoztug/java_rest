@@ -1,4 +1,4 @@
-package src.main.java.repository;
+package com.java.repository;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import src.main.java.model.Student;
+import com.java.model.Student;
 
 @Repository
 public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
@@ -51,7 +51,7 @@ public class StudentJdbcRepositoryImpl implements StudentJdbcRepository{
     public Student findById(long id) {
     	Student student = null;
     	try {
-    		jdbcTemplate.queryForObject(
+    		student = jdbcTemplate.queryForObject(
                 "select * from student where id = ?",
                 new Object[]{id},
                 (rs, rowNum) ->
