@@ -21,10 +21,18 @@ public class StudentServer {
         this.service = service;
     }
 	
-	@GetMapping("/studentGenerator")
+	@GetMapping("/generate-student")
 	public Student studentGenerator() {
 		log.info("studentGenerator request...");
 		return service.getRandomStudent();
+	}
+	
+	@GetMapping("/generate-student2")
+	public Student studentGenerator2() {
+		log.info("studentGenerator2 request...");
+		Student student = new Student();
+		student.setName("zeynep");
+		return student;
 	}
 
 }
