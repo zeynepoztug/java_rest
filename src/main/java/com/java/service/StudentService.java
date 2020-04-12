@@ -20,8 +20,6 @@ public class StudentService {
 		student.setName(stringService.generateRandomAlphaString());
 		student.setPassportNumber(stringService.generateRandomAlphaNumericString());
 		return student;
-	}
-	
-	
+	}	
 
 }
